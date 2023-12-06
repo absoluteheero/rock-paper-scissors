@@ -1,6 +1,17 @@
 var playerScore = 0;
 var cpuScore = 0;
 
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        console.log(button.id);
+        playRound(button.id, getComputerChoice());
+    });
+  });
+
 function getComputerChoice(){
     var choices =['Rock', 'Paper', 'Scissors']
     var cpuChoice = choices[Math.floor(Math.random()* choices.length)]
@@ -9,8 +20,7 @@ function getComputerChoice(){
 }
 
 function playRound (playerSelection, computerSelection){
-    // Logic here
-    console.log(playerSelection);
+    
     // Put choices in all same case
     let playerChoice = playerSelection.toUpperCase();
     let cpuChoice = computerSelection.toUpperCase();
@@ -37,21 +47,7 @@ function playRound (playerSelection, computerSelection){
 
 function game(){
 
-    let numRounds = 5;
-    let computerSelection = '';
-    playerScore = 0;
-    cpuScore = 0;
-
-    while(numRounds > 0){
-        computerSelection = getComputerChoice();
-        var playerChoice = prompt('What is your choice?');
-        var result = playRound(playerChoice, computerSelection);
-        console.log(result);
-        console.log("The score is:");
-        console.log("Human: " + playerScore);
-        console.log("CPU: " + cpuScore)
-        numRounds--;
-    }
+    
 }
 
 game();
